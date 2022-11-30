@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div>
+    <h1 align="center">Lista de carros</h1>
+</div>
+<div>
+    <table>
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Versão</th>
+            <th>Ano de Fabricação</th>
+            <th>Chassis</th>
+        </tr>
+        {% for carro in lista_carros %} 
+        <tr>
+            <td>{{ carro.marca }}</td>
+            <td>{{ carro.modelo }}</td>
+            <td>{{ carro.versao }}</td>
+            <td>{{ carro.ano_fabricacao }}</td>
+            <td>{{ carro.chassis }}</td>
+        </tr>
+        {% endfor %} 
+    </table>
+</div>
+{% endblock %}

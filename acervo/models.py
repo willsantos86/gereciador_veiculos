@@ -24,9 +24,11 @@ class Versao(models.Model):
     combustivel = models.CharField(max_length=10, verbose_name="Combustivel", choices=combustivel_list)
     ano_versao = models.IntegerField(verbose_name="Ano da Versão")
     
+    #Renomear classe
     class Meta:
         verbose_name_plural = "Versões"
 
+    #Formato de saída.
     def __str__(self):
         return f'Versão {self.id}'
 
@@ -37,10 +39,10 @@ class Carro(models.Model):
     ano_fabricacao = models.IntegerField(verbose_name="Ano de Fabricação")
     chassis = models.CharField(max_length=30, verbose_name="Chassi", unique=True)
 
-
+    #Renomear classe
     class Meta: 
         verbose_name_plural = "Carros"
 
-
+    #Formato de saída.
     def __str__(self):
         return f'{self.modelo} - {self.marca} - {self.chassis}'

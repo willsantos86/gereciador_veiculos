@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div>
+    <h1 align="center">Cadastramento de carros</h1>
+</div>
+<div>
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
+{% endblock %}
