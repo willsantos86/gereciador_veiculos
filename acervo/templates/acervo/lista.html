@@ -2,27 +2,35 @@
 {% load static %}
 {% block content %}
 
-<div>
+<div class="container">
     <h1 align="center">Lista de carros</h1>
-</div>
-<div>
-    <table>
-        <tr>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th>Versão</th>
-            <th>Ano de Fabricação</th>
-            <th>Chassis</th>
-        </tr>
-        {% for carro in lista_carros %} 
-        <tr>
-            <td>{{ carro.marca }}</td>
-            <td>{{ carro.modelo }}</td>
-            <td>{{ carro.versao }}</td>
-            <td>{{ carro.ano_fabricacao }}</td>
-            <td>{{ carro.chassis }}</td>
-        </tr>
-        {% endfor %} 
-    </table>
+    <div class="table-responsive">
+        <table class="table" align="center">
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Versão</th>
+                <th>Ano de Fabricação</th>
+                <th>Chassis</th>
+                <th>Editar</th>
+                <th>Deletar</th>
+            </tr>
+            {% for carro in lista_carros %} 
+            <tr>
+                <td>{{ carro.marca }}</td>
+                <td>{{ carro.modelo }}</td>
+                <td>{{ carro.versao }}</td>
+                <td>{{ carro.ano_fabricacao }}</td>
+                <td>{{ carro.chassis }}</td>
+                <td><a href="{% url 'acervo:editar' carro.id %}"><i class="fa fa-pencil"></i></a></td>
+                <td><a href="{% url 'acervo:deletar' carro.id %}"><i class="fa fa-trash"></i></a></td>
+            </tr>
+            {% endfor %} 
+        </table>
+      
+            <a class="btn btn-success btn-block" href="{% url 'acervo:cadastrar' %}">Cadastrar</a>
+        
+    </div>
+
 </div>
 {% endblock %}

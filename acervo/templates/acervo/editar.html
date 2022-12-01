@@ -4,12 +4,12 @@
 {% block content %}
 
 <div class="container">
-    <h1 align="center">Cadastramento de carros</h1>
+    <h1 align="center">Editar carros</h1>
     <div class="card">
         <form method="post" action=".">
             {% csrf_token %}
             {% bootstrap_form form %}
-            <button class="btn btn-success" type="submit">Cadastrar</button>
+            <button class="btn btn-warning" type="submit">Salvar</button>
         </form>
     </div>
 </div>

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block content %}
+
+<div class="container">
+    <h1 align="center">Deletar carros</h1>
+    <h3>
+        <li>{{ carro.marca }}</li>
+        <li>{{ carro.modelo }}</li>
+        <li>{{ carro.versao }}</li>
+        <li>{{ carro.ano_fabricacao }}</li>
+        <li>{{ carro.chassis }}</li>
+    </h3>
+    <div class="card">
+        <form method="post" action="." onsubmit="return confirm('Tem certeza que deseja deletar este carro?');">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button class="btn btn-danger" type="submit">Deletar</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

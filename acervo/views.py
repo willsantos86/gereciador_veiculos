@@ -25,3 +25,28 @@ def lista(request):
     context = {'lista_carros': lista_carros}
 
     return render(request, 'acervo/lista.html', context)
+
+
+def editar(request, pk):
+    carro = Carro.objects.get(id=pk)
+    form = CadastrarForm(instance= carro )
+    context = {'form': form}
+
+    if request.method=='POST':
+        form = CadastrarForm(request.POST, instance= carro)
+
+        if form.is_valid():
+            form.save()
+            return redirect('acervo:lista')
+    return render(request, 'acervo/editar.html', context)
+
+
+def deletar(request, pk):
+    carro = Carro.objects.get(id=pk)
+    context = {'carro': carro}
+    
+    if request.method=='POST':
+        carro.delete()
+        return redirect('acervo:lista')
+    return render(request, 'acervo/deletar.html', context)
+    

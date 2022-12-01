@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div>
+        <h1 align="center">Página Principal</h1>
+    </div>
+    <div class="card">
+        <a class="btn btn-success btn-block" href="{% url 'acervo:cadastrar' %}">Cadastrar</a><br>
+        <a class="btn btn-outline-primary btn-block" href="{% url 'acervo:lista' %}">Lista de Carros</a>  
+    </div>
+</div>
+
+{% endblock %}
